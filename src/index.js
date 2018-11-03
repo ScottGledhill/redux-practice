@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { combineReducers, createStore } from 'redux';
-import { Provider } from react-redux;
-
+import { Provider } from 'react-redux';
+import productsReducer from './reducers/products-reducer';
+import userReducer from './reducers/user-reducer';
 
 const allReducers = combineReducers({
   products: productsReducer,
