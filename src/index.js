@@ -10,7 +10,12 @@ function productsReducer(state = [], action) {
   return state
 }
 
-function userReducer(state = '', action) { 
+function userReducer(state = '', { type, payload
+  }) { 
+  switch (type) {
+    case 'updateUser':
+      return payload
+  }
   return state
 }
 
@@ -27,8 +32,17 @@ const store = createStore(
   },
   window.devToolsExtension && window.devToolsExtension()
 )
-
 console.log(store.getState())
+
+const updateUserAction = {
+  type: 'updateUser',
+  payload: {
+    user: 'TOM'
+  }
+}
+
+store.dispatch(updateUserAction)
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
