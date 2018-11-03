@@ -6,35 +6,31 @@ import { connect } from 'react-redux';
 import { updateUser} from './actions/user-actions';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.onUpdateUser = this.onUpdateUser.bind(this)
+  }
+
+  onUpdateUser() {
+    this.props.onUpdateUser('idiot')
+  }
   render() {
-    console.log(this.props)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div onClick={this.onUpdateUser}>Update User</div>
+        {this.props.user}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {(
+const mapStateToProps = (state) => ({
   products: state.products,
-  user state.user
+  user: state.user
 })
 
 const mapActionsToProps = {
+  onUpdateUser: updateUser
 
 }
 
